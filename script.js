@@ -7,8 +7,11 @@ var answerButtonsEl = document.getElementById("answer-buttons")
 let shuffledQuestions, currentQuestionIndex;
 
 // why doesn't this work??, it will not console log says "TypeError"
-startButton.addEventListener('click', startGame);
-
+startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++,
+    setNextQuestion()
+}
 function startGame(){
     console.log("Started");
     startButton.classList.add("hide");
@@ -53,6 +56,12 @@ function selectAnswer() {
     Array.from(answerButtonsEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove("hide")
+    } else {
+        startButton.innerText = "Restart";
+        startButton.classList.remove("hide")
+    }
  
 }
 
@@ -65,7 +74,11 @@ function setStatusClass(element, correct) {
        }
 }
 
-
+function clearStatusClass(element) {
+    element.classList.remove("correct")
+    element.classList.remove("wrong")
+    
+}
 
 var questions = [
     { question: "What Pokemon does Pikachu evolve into?",
