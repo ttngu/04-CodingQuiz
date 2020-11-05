@@ -19,10 +19,29 @@ body {
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px; 
     /* box-shadow: 0 0 10 2px; */
+} 
+
+#question-container {
+    background-color: white;
+}
+#timer {
+    text-align: right;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+} 
+
+#title {
+    text-align: Left;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    
 }
 
+#question {
+    text-align: center;
+}
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -54,6 +73,7 @@ body {
     align-items: center;
 }
 
-.hide {
+/* .hide {
     display: none;
-}
+} */
+
