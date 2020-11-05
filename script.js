@@ -60,10 +60,12 @@ function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add("correct")
-        else { }
+    } else { 
         element.classList.add("wrong")
-    }
+       }
 }
+
+
 
 var questions = [
     { question: "What Pokemon does Pikachu evolve into?",
