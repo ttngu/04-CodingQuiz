@@ -1,7 +1,9 @@
 var startButton = document.getElementById("start-btn");
-// var questionContainerEl= document.getElementById("question-container");
+var questionContainerEl= document.getElementById("question-container");
+var questionEl = document.getElementById("question")
+var answerButtonsEl = document.getElementById("answer-buttons")
 
-var shuffledQuestions, currentQuestionIndex;
+let shuffledQuestions, currentQuestionIndex;
 
 // why doesn't this work??, it will not console log says "TypeError"
 startButton.addEventListener('click', startGame);
@@ -16,11 +18,15 @@ function startGame(){
 }
 
 function setNextQuestion() {
+    showQuestion(shuffledQuestions[currentQuestionIndex])
 
+}
+function showQuestion(question) {
+    questionEl.innerText = question.question
 }
 
 function selectAnswer() {
-
+ 
 }
 
 var questions = [
