@@ -26,6 +26,7 @@ body {
 #question-container {
     background-color: white;
 }
+
 #timer {
     text-align: right;
     font-size: 1.5rem;
@@ -42,6 +43,7 @@ body {
 #question {
     text-align: center;
 }
+
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);

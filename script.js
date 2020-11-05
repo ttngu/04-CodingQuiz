@@ -1,17 +1,13 @@
-var startButton = document.querySelector("start");
+var startButton = document.getElementById("start");
 var nextButton = document.getElementById("next-btn");
 var questionContainerEl= document.getElementById("question-container");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons")
 
 let shuffledQuestions, currentQuestionIndex;
-console.log(startButton)
+
 // why doesn't this work??, it says "TypeError"
-startButton.addEventListener("click", startGame );
-nextButton.addEventListener("click", () =>  {
-    currentQuestionIndex++;
-    setNextQuestion();
-})
+
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -137,3 +133,10 @@ var questions = [
         ]
     }    
 ]
+
+// startButton.addEventListener("click", startGame );
+startButton.onclick= startGame;
+nextButton.addEventListener("click", () =>  {
+    currentQuestionIndex++;
+    setNextQuestion();
+})
