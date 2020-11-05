@@ -6,11 +6,11 @@ var answerButtonsEl = document.getElementById("answer-buttons")
 
 let shuffledQuestions, currentQuestionIndex;
 
-// why doesn't this work??, it will not console log says "TypeError"
-startButton.addEventListener("click", startGame);
-nextButton.addEventListener("click", () => {
-    currentQuestionIndex++,
-    setNextQuestion()
+// why doesn't this work??, it says "TypeError"
+startButton.addEventListener("click", startGame());
+nextButton.addEventListener("click", () => ) {
+    currentQuestionIndex++;
+    setNextQuestion();
 }
 function startGame(){
     console.log("Started");
@@ -88,6 +88,29 @@ var questions = [
             {text: "Meowstic", correct: false},
             {text: "Jolteon", correct: false},
         ]
-    }
-    
+    },
+    { question: "What are the three types of starter Pokemon?",
+        answers: [
+            {text: "Dragon, Flying and Normal", correct: false},
+            {text: "Grass, Fire and Water", correct: true},
+            {text: "Psychic, Fighting and Ghost", correct: false},
+            {text: "Electric, Ground, and Poison", correct: false},
+        ]
+    },
+    { question: "What type of Pokemon is Mewtwo?",
+        answers: [
+            {text: "Fighting", correct: false},
+            {text: "Dark", correct: false},
+            {text: "Psychic", correct: true},
+            {text: "Fairy", correct: false},
+        ]
+    },
+    { question: "What does Pikachu do with hard berries?",
+        answers: [
+            {text: "Throws them", correct: false},
+            {text: "Eats them", correct: false},
+            {text: "Gives them away", correct: false},
+            {text: "Roasts them", correct: true},
+        ]
+    }    
 ]
