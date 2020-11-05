@@ -1,17 +1,40 @@
-var startButton = document.getElementById("start-btn");
+var startButton = document.querySelector("start");
 var nextButton = document.getElementById("next-btn");
 var questionContainerEl= document.getElementById("question-container");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons")
 
 let shuffledQuestions, currentQuestionIndex;
-
+console.log(startButton)
 // why doesn't this work??, it says "TypeError"
-startButton.addEventListener("click", startGame());
-nextButton.addEventListener("click", () => ) {
+startButton.addEventListener("click", startGame );
+nextButton.addEventListener("click", () =>  {
     currentQuestionIndex++;
     setNextQuestion();
+})
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+            } else if (--timer == 0){
+            scoretotal = 0;
+            alert("Out of time!");
+            tryagain();
+        }
+
+    }, 1000);
 }
+
 function startGame(){
     console.log("Started");
     startButton.classList.add("hide");
@@ -65,20 +88,20 @@ function selectAnswer() {
  
 }
 // ** These are to change the colors **
-function setStatusClass(element, correct) {
-    clearStatusClass(element)
-    if (correct) {
-        element.classList.add("correct")
-    } else { 
-        element.classList.add("wrong")
-       }
-}
+// function setStatusClass(element, correct) {
+//     clearStatusClass(element)
+//     if (correct) {
+//         element.classList.add("correct")
+//     } else { 
+//         element.classList.add("wrong")
+//        }
+// }
 
-function clearStatusClass(element) {
-    element.classList.remove("correct")
-    element.classList.remove("wrong")
+// function clearStatusClass(element) {
+//     element.classList.remove("correct")
+//     element.classList.remove("wrong")
     
-}
+// }
 
 var questions = [
     { question: "What Pokemon does Pikachu evolve into?",
