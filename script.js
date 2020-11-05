@@ -1,7 +1,7 @@
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
 var questionContainerEl= document.getElementById("question-container");
-var questionEl = document.getElementById("question")
+var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons")
 
 let shuffledQuestions, currentQuestionIndex;
@@ -64,21 +64,21 @@ function selectAnswer() {
     }
  
 }
+// ** These are to change the colors **
+// function setStatusClass(element, correct) {
+//     clearStatusClass(element)
+//     if (correct) {
+//         element.classList.add("correct")
+//     } else { 
+//         element.classList.add("wrong")
+//        }
+// }
 
-function setStatusClass(element, correct) {
-    clearStatusClass(element)
-    if (correct) {
-        element.classList.add("correct")
-    } else { 
-        element.classList.add("wrong")
-       }
-}
-
-function clearStatusClass(element) {
-    element.classList.remove("correct")
-    element.classList.remove("wrong")
+// function clearStatusClass(element) {
+//     element.classList.remove("correct")
+//     element.classList.remove("wrong")
     
-}
+// }
 
 var questions = [
     { question: "What Pokemon does Pikachu evolve into?",

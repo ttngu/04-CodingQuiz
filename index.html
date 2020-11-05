@@ -9,9 +9,16 @@
     <title>Quiz HW</title>
 </head>
 <body>
+    <!-- Timer -->
+    <div class="container" id="timer">
+        <p><span id="timer">Press start to start timer!</span></p>  
+    </div>
+
+    <!-- Questions container -->
     <div class="container">
         <div id="question-container" class="hide">
             <div id="question">Question</div>
+            <!-- Answer Buttons -->
             <div id="answer-buttons" class="btn-grid">
                 <button class="btn">Answer1</button>
                 <button class="btn">Answer2</button>
@@ -19,6 +26,7 @@
                 <button class="btn">Answer4</button>
             </div>
         </div>
+        <!-- Start, Next Buttons -->
         <div class="controls">
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
