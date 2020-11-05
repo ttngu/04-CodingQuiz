@@ -30,3 +30,30 @@ body {
     margin: 20px 0;
 }
 
+.btn {
+    border: 1px solid gray;
+    background-color: lightsteelblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn:hover {
+    border-color: black;
+
+}
+
+.start-btn, .next-btn {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
