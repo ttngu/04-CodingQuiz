@@ -7,6 +7,8 @@ var answerButtonsEl = document.getElementById("answer-buttons")
 var timer = document.getElementById("timer");
 var duration = 100;
 var timerId;
+var score;
+var answerState;
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -15,13 +17,10 @@ function startTimer(duration, display) {
     timerId = setInterval(countDown, 1000);
 }
 function countDown () {
-    
-    // duration = duration - 10;
     duration --
     timer.textContent = duration + " seconds left";
     
     if (duration <= 0) {
-        scoretotal = 0;
         alert("Out of time!");
         // tryagain();
         clearInterval(timerId);
@@ -31,12 +30,13 @@ function countDown () {
 // Start game function
 function startGame(){
     startTimer (duration, timer)
+
     console.log("Started");
-    startButton.style.display="none";
+    
     // Next Botton now hides until Start is clicked, but does not follow the style that is set in the CSS. How do I fix this?
     nextButton.style.display="block";
 
-    shuffledQuestions = questions.sort(() => Math.random() - .5);
+    shuffledQuestions = quiz.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     questionContainerEl.classList.remove("hide");
     setNextQuestion();
@@ -56,10 +56,10 @@ function showQuestion(question) {
         var button = document.createElement("button")
         button.innerText = answer.text
         button.classList.add("btn")
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-        button.addEventListener('click', selectAnswer)
+
+        button.addEventListener("click", function() {
+            selectAnswer(answer.correct);
+        });
         answerButtonsEl.appendChild(button)
         
     });
@@ -75,19 +75,20 @@ function resetState() {
 }
 
 // Select answer function
-function selectAnswer() {
-    var selectedButton = e.target
-    var correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
-    Array.from(answerButtonsEl.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
-    })
-    if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove("hide")
-    } else {
-        startButton.innerText = "Restart";
-        startButton.classList.remove("hide")
-    }
+function selectAnswer(correct) {
+    answerState = correct;
+    // var selectedButton = e.target
+    // var correct = selectedButton.dataset.correct
+    // setStatusClass(document.body, correct)
+    // Array.from(answerButtonsEl.children).forEach(button => {
+    //     setStatusClass(button, button.dataset.correct)
+    // })
+    // if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    //     nextButton.classList.remove("hide")
+    // } else {
+    //     startButton.innerText = "Restart";
+    //     startButton.classList.remove("hide")
+    // }
  
 }
 // ** These are to change the colors **
@@ -106,8 +107,12 @@ function selectAnswer() {
     
 // }
 
+function showHighScore () {
+
+}
+
 // All of the questions to ask during the quiz
-var questions = [
+var quiz = [
     { question: "What Pokemon does Pikachu evolve into?",
         answers: [
             {text: "Raichu", correct: true},
@@ -143,14 +148,25 @@ var questions = [
 ]
 
 // Click events
-startButton.onclick= startGame;
-
-nextButton.addEventListener("click", () =>  {
-    currentQuestionIndex++;
-    setNextQuestion();
+    // Start Quiz
+// startButton.onclick= startGame;
+startButton.addEventListener("click", () => {
+    startButton.style.display="none";
+    startGame();
 })
+    // Next Button  
+nextButton.addEventListener("click", () =>  {
+    if (answerState) {
+        score++;
+     }  else {
+        duration = duration - 10;
+     }
+    currentQuestionIndex++;
 
-answerButtonsEl.addEventListener("click", () => {
-    selectAnswer;
-    setNextQuestion();
+    if (currentQuestionIndex === 4) {
+        showHighScore();
+    }   else {
+        setNextQuestion();
+    }
+
 })

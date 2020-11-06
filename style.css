@@ -72,14 +72,14 @@ body {
     background-color: rgb(175, 199, 215);
 }
 
-/* THESE DONT WORK
+/* THESE DONT WORK */
 .btn.correct {
-    --hue: var(--hue-coreect)
+    --hue: hsl(145);
 }
 
 .btn.wrong {
-    --hue: var(--hue-wrong)
-} */
+    --hue: hsl(0);
+}
 
 .start, .next-btn {
     font-size: 0.75rem;
