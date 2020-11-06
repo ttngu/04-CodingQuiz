@@ -1,3 +1,4 @@
+// Define Varibles 
 var startButton = document.getElementById("start");
 var nextButton = document.getElementById("next-btn");
 var questionContainerEl= document.getElementById("question-container");
@@ -11,15 +12,13 @@ let shuffledQuestions, currentQuestionIndex;
 
 // Timer function 
 function startTimer(duration, display) {
-    // var timer = duration, minutes, seconds;
     timerId = setInterval(countDown, 1000);
 }
 function countDown () {
     
-    // duration = duration - 1;
     // duration = duration - 10;
     duration --
-    timer.textContent = duration;
+    timer.textContent = duration + " seconds left";
     
     if (duration <= 0) {
         scoretotal = 0;
