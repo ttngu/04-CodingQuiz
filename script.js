@@ -34,6 +34,9 @@ function startGame(){
     startTimer (duration, timer)
     console.log("Started");
     startButton.style.display="none";
+    // Next Botton now hides until Start is clicked, but does not follow the style that is set in the CSS. How do I fix this?
+    nextButton.style.display="block";
+
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     questionContainerEl.classList.remove("hide");
