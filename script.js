@@ -3,6 +3,9 @@ var nextButton = document.getElementById("next-btn");
 var questionContainerEl= document.getElementById("question-container");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons")
+var timer = document.getElementById("timer");
+var duration = 100;
+var timerId;
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -10,28 +13,24 @@ let shuffledQuestions, currentQuestionIndex;
 
 
 function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-            } else if (--timer == 0){
-            scoretotal = 0;
-            alert("Out of time!");
-            tryagain();
-        }
-
-    }, 1000);
+    // var timer = duration, minutes, seconds;
+    timerId = setInterval(countDown, 1000);
 }
-
+function countDown () {
+    
+    // duration = duration - 1;
+    duration = duration - 10;
+    timer.textContent = duration;
+    
+    if (duration <= 0) {
+        scoretotal = 0;
+        alert("Out of time!");
+        tryagain();
+        clearInterval(timerId);
+    }
+}
 function startGame(){
+    startTimer (duration, timer)
     console.log("Started");
     startButton.classList.add("hide");
     shuffledQuestions = questions.sort(() => Math.random() - .5);
