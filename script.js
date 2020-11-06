@@ -147,3 +147,8 @@ nextButton.addEventListener("click", () =>  {
     currentQuestionIndex++;
     setNextQuestion();
 })
+
+answerButtonsEl.addEventListener("click", () => {
+    selectAnswer;
+    setNextQuestion();
+})
