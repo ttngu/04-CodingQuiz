@@ -17,14 +17,14 @@ body {
 .container {
     width: 800px;
     max-width: 80%;
-    background-color: white;
+    background-color: rgb(222, 211, 153);
     border-radius: 5px;
-    padding: 10px; 
+    padding: 10px;
     /* box-shadow: 0 0 10 2px; */
 } 
 
 #question-container {
-    background-color: white;
+    background-color: rgb(222, 211, 153);
 }
 
 #timer {
@@ -37,11 +37,17 @@ body {
     text-align: Left;
     font-size: 1.5rem;
     padding: 10px 20px;
-    
 }
 
 #question {
     text-align: center;
+}
+
+.btn {
+    border: 1px solid gray;
+    background-color: rgb(169, 190, 218);
+    border-radius: 5px;
+    padding: 5px 10px;
 }
 
 .btn-grid {
@@ -51,19 +57,11 @@ body {
     margin: 20px 0;
 }
 
-.btn {
-    border: 1px solid gray;
-    background-color: lightsteelblue;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
 .btn:hover {
     border-color: black;
-
 }
 
-.start-btn, .next-btn {
+.start, .next-btn {
     font-size: 0.75rem;
     font-weight: bold;
     padding: 10px 20px;
@@ -73,9 +71,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
-/* .hide {
+.hide {
     display: none;
-} */
+}
 

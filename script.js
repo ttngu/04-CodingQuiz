@@ -9,9 +9,7 @@ var timerId;
 
 let shuffledQuestions, currentQuestionIndex;
 
-// why doesn't this work??, it says "TypeError"
-
-
+// Timer function 
 function startTimer(duration, display) {
     // var timer = duration, minutes, seconds;
     timerId = setInterval(countDown, 1000);
@@ -19,31 +17,37 @@ function startTimer(duration, display) {
 function countDown () {
     
     // duration = duration - 1;
-    duration = duration - 10;
+    // duration = duration - 10;
+    duration --
     timer.textContent = duration;
     
     if (duration <= 0) {
         scoretotal = 0;
         alert("Out of time!");
-        tryagain();
+        // tryagain();
         clearInterval(timerId);
     }
+    
 }
+// Start game function
 function startGame(){
     startTimer (duration, timer)
     console.log("Started");
-    startButton.classList.add("hide");
+    startButton.style.display="none";
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     questionContainerEl.classList.remove("hide");
     setNextQuestion();
 }
 
+// Next question function
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 
 }
+
+// Function to show the question, appends next child
 function showQuestion(question) {
     questionEl.innerText = question.question
     question.answers.forEach(answer => {
@@ -59,6 +63,7 @@ function showQuestion(question) {
     });
 }
 
+// Function to reset/hide the appended child
 function resetState() {
     nextButton.classList.add("hide")
     while (answerButtonsEl.firstChild) {
@@ -67,6 +72,7 @@ function resetState() {
     }
 }
 
+// Select answer function
 function selectAnswer() {
     var selectedButton = e.target
     var correct = selectedButton.dataset.correct
@@ -98,6 +104,7 @@ function selectAnswer() {
     
 // }
 
+// All of the questions to ask during the quiz
 var questions = [
     { question: "What Pokemon does Pikachu evolve into?",
         answers: [
@@ -133,8 +140,9 @@ var questions = [
     }    
 ]
 
-// startButton.addEventListener("click", startGame );
+// Click events
 startButton.onclick= startGame;
+
 nextButton.addEventListener("click", () =>  {
     currentQuestionIndex++;
     setNextQuestion();
