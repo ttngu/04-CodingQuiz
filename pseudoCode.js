@@ -14,6 +14,11 @@
 // IF the CORRECT answer is clicked:
     // Score increases by 1
     // Button turns blue
+
+// When Next is clicked
+    // Update score + or -
+
+    // Click next to continue to the next question
 // When all questions are answered:
     // Ask for initals
     // Add to highscores
