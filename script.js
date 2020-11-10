@@ -12,6 +12,7 @@ var answerState;
 
 let shuffledQuestions, currentQuestionIndex;
 
+
 // Timer function 
 function startTimer(duration, display) {
     timerId = setInterval(countDown, 1000);
